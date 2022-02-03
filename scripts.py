@@ -25,6 +25,7 @@ def get_schoolkid_by_name(kid_name):
 def fix_marks(schoolkid):
     if not schoolkid:
         print('Не передан объект ученика')
+        return
 
     schoolkid.mark_set.filter(points__in=[2, 3]).update(points=5)
     print('Все плохие оценки заменены на 5')
@@ -33,6 +34,7 @@ def fix_marks(schoolkid):
 def remove_chastisements(schoolkid):
     if not schoolkid:
         print('Не передан объект ученика')
+        return
 
     schoolkid.chastisement_set.all().delete()
     print('Все замечания удалены')
